@@ -1,7 +1,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center" id="upperPage">
-            <img src="/public/assets/img/burgerLogo.png" alt="cartoon burger">
             <h1>EAT. DA. BURGER.</h1>
         </div>
         <div class="col-md-6 text-center" class="task">
@@ -14,9 +13,8 @@
                     </pre>
                 </div>
                 <div class="col-md-3 text-center">
-                    <form class="devour-form button-size">
-                        <input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
-                        <button type="submit" class="btn btn-default">DEVOUR DA BURGER!!</button>
+                    <form action="/burgers/{{this.id}}?_method=PUT" method="POST" class="devour-form button-size">
+                        <button type="submit" class="btn btn-default burgerUndevoured">DEVOUR DA BURGER!!</button>
                     </form>
                 </div>
                 {{/unless}}
@@ -26,18 +24,21 @@
         <div class="col-md-6 text-center" class="task">
             {{#each burgers}}
             {{#if this.devoured}}
-            <input class="form-control" type="text" placeholder="{{this.id}} -- {{this.burger_name}}" readonly>
-            {{/if}}
-            {{/each}}
+            <div class="devouredBurgers">
+                <div>
+                {{/if}}
+                {{/each}}
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center enter_section">
-            <form method="POST">
-            <input type="text" class="form-control" name="burger_name" value="" id="enter_text">
-            <button type="submit" class="btn btn-primary" id="text-enter-button">SUBMIT</button>
+            <form action="/burgers" method="POST">
+                <input type="text" id="name" name="burger_name" placeholder="Imaginary Burger">
+                <button type="submit" class="addBurgerButton">ADD DA BURGER</button>
             </form>
             <p>ENTER A BURGER YOU WANT TO DEVOUR AND CLICK THE "SUBMIT" BUTTON!</p>
         </div>
