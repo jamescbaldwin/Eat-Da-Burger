@@ -3,21 +3,21 @@ var orm = require("../config/orm.js");
 
 // Call ORM functions using burger specific input for the orm
 var burger = {
-    selectAll: function(cb) {
+    selectAll: function(cbf) {
         orm.selectAll("burgers", function(res) {
-            cb(res);
+            cbf(res);
         });
     },
 
-    insertOne: function(vals, cb) {
-        orm.insertOne("burgers", "burger_name", vals, function(res) {
-            cb(res);
+    insertOne: function(column, cbf) {
+        orm.insertOne("burgers", column, function(res) {
+            cbf(res);
         });
     },
 
-    updateOne: function(updatedValue, id, cb) {
-        orm.updateOne("burgers", "devoured", updatedValue, id, function(res) {
-            cb(res);
+    updateOne: function(columnVal, condition, cbf) {
+        orm.updateOne("burgers", columnVal, condition, function(res) {
+            cbf(res);
         });
     }
 };

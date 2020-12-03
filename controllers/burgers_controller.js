@@ -12,21 +12,15 @@ router.get("/", function(req, res) {
     });
 });
 
-router.post("/burgers", function(req, res) {
+router.post("/", function(req, res) {
     burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(result) {
         res.json({ id: result.insertId });
     });
 });
 
-router.put("/burgers/:id", function(req, res) {
-    // var id = req.params.id;
-    // burger.updateOne("devoured", true, id, function(results) {
-    //     res.json(results);
-    // });
+router.put("/:id", function(req, res) {
     var condition = "id = " + req.params.id;
-
     console.log("condition", condition);
-
     burger.updateOne(
         {
           devoured: req.body.devoured
