@@ -1,13 +1,12 @@
-//create button that submits user input into db
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center" id="upperPage">
             <img src="/public/assets/img/burgerLogo.png" alt="cartoon burger">
-            <h1>Eat-Da-Burger!!!</h1>
+            <h1>EAT. DA. BURGER.</h1>
         </div>
         <div class="col-md-6 text-center" class="task">
             <div class="row">
-                {{#each burger_data}}
+                {{#each burgers}}
                 {{#unless this.devoured}}
                 <div class="col-md-9 text-center">
                     <pre>{{this.id}} -- {{this.burger_name}}
@@ -25,7 +24,7 @@
             </div>
         </div>
         <div class="col-md-6 text-center" class="task">
-            {{#each burger_data}}
+            {{#each burgers}}
             {{#if this.devoured}}
             <input class="form-control" type="text" placeholder="{{this.id}} -- {{this.burger_name}}" readonly>
             {{/if}}
@@ -36,7 +35,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center enter_section">
-            <form action="/burgers/create" method="POST">
+            <form method="POST">
             <input type="text" class="form-control" name="burger_name" value="" id="enter_text">
             <button type="submit" class="btn btn-primary" id="text-enter-button">SUBMIT</button>
             </form>
