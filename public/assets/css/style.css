@@ -8,3 +8,14 @@ img {
     width: 222px;
     height: 222px;
 }
+
+#instruction {
+    margin-top: 5px;
+    font-family: Calibri;
+    font-weight: bold;
+}
+
+#title {
+    font-family: Calibri;
+    font-weight: bold;
+}
