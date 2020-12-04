@@ -22,19 +22,7 @@ var orm = {
 
   updateOne: function(tableInput, columnVal, condition, cbf) {
     var queryString = "UPDATE " + tableInput;
-    queryString += ' SET devoured = true';
-    queryString += ' WHERE ';
-    queryString += condition;
-    console.log(queryString);
-    connection.query(queryString, function (err, result) {
-      if (err) throw err;
-      cbf(result);
-    });
-  },
-
-  undoOne: function(tableInput, columnVal, condition, cbf) {
-    var queryString = "UPDATE " + tableInput;
-    queryString += ' SET devoured = false';
+    queryString += ' SET devoured = !devoured';
     queryString += ' WHERE ';
     queryString += condition;
     console.log(queryString);

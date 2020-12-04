@@ -34,35 +34,22 @@ $(function () {
         })
     });
 
-    $(".regergitateButton").on("click", function(event) {
+    $(".regurgitateButton").on("click", function(event) {
         event.preventDefault();
         var id = $(this).data("id");
-        var eatBurger = $(this).data("eaten");
+        var revokedBurger = $(this).data("regurgitated");
 
         var devouredBurger = {
-            devoured: false
+            devoured: revokedBurger
         };
 
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: devouredBurger
         }).then(function () {
-            console.log("burger devoured: ", eatBurger);
+            console.log("burger devoured: ", revokedBurger);
             location.reload();
         })
     });
-
-    // $(".delete").on("click", function(event) {
-	// 	var id = $(this).data("id");
-
-	//     $.ajax("/api/burgers/" + id, {
-	//     	type: "DELETE",
-	//     }).then(
-	//     function() {
-	//     	console.log("deleted burger", id);
-	//         location.reload();
-	//     }
-	//     );
-	// });
 });
 

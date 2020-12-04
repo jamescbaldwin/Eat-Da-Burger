@@ -1,6 +1,7 @@
-*{
+* {
     font-family: Monaco;
     font-weight: bold;
+    border-radius: 6px;
 }
 
 body {
