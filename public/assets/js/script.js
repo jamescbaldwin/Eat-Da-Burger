@@ -1,4 +1,4 @@
-$(document).ready(function () { 
+$(function () { 
     $(".devourButton").on("click", function(event) {
         event.preventDefault();
         var id = $(this).data("id");
