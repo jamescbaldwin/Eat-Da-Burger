@@ -20,7 +20,7 @@
                     <div class="undevoured">
                         <li class="form-control">
                             {{id}}.
-                            {{burger_name}}.
+                            {{burger_name}}
                         </li>
                         <span class="input-group-button">
                             <button class="devourButton btn-primary btn-lg" data-id="{{id}}">DEVOUR DA BURGER</button>
@@ -39,7 +39,7 @@
                     <div class="undevoured">
                         <li class="form-control">
                             {{id}}.
-                            {{burger_name}}.
+                            {{burger_name}}
                         </li>
                         <span class="input-group-button">
                             <button class="btn-primary btn-lg" id="regergitateButton">UNDEVOUR DA BURGER</button>
@@ -54,9 +54,9 @@
 
     <div class="row">
         <div class="col-md-12 text-center">
-            <form class="addBurgerForm">
+            <form id="addBurgerForm">
                 <div class="form-group">
-                    <textarea id="newBurger" cols="25" rows="3"></textarea>
+                    <textarea id="newBurger" name="newBurger" cols="25" rows="3"></textarea>
                 </div>
                 <button class="btn-danger btn-lg" type="submit" id="submitButton">ADD DA BURGER!</button>
             </form>

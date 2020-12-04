@@ -1,6 +1,6 @@
 $(document).ready(function () { 
     $(".devourButton").on("click", function(event) {
-        // event.preventDefault();
+        event.preventDefault();
         var id = $(this).data("id");
         var eatBurger = $(this).data("eaten");
 
