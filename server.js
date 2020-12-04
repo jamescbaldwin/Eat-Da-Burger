@@ -1,27 +1,35 @@
 var express = require("express");
-
-var PORT = process.env.PORT || 3000;
-
 var app = express();
-
-// Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
-
-// Parse request body as JSON
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Set Handlebars
-var exphbs = require("express-handlebars");
 
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
+
+var burgerController = require ("./controllers/burgers_controller.js");
+app.use("/api/burgers", burgerController);
+
+var burger = require("./models/burger.js");
+app.get("/", function(req, res) {
+    burger.selectAll(function(data) {
+        var hbsObject = {
+            burgers: data
+        };
+        console.log(hbsObject);
+        res.render("index", hbsObject);
+    });
+});
+
+var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Import routes, make them accessible to server
 var routes = require("./controllers/burgers_controller.js");
-
 app.use(routes);
 
+
+var PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
     console.log("App is listening at localhost: " + PORT);
 });
