@@ -32,6 +32,25 @@ $(function () {
             console.log("ADDED DA BURGER!");
             location.reload();
         })
+    });
+
+    $(".regergitateButton").on("click", function(event) {
+        event.preventDefault();
+        var id = $(this).data("id");
+        var eatBurger = $(this).data("eaten");
+
+        var devouredBurger = {
+            devoured: eatBurger
+        };
+
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: devouredBurger
+        }).then(function () {
+            console.log("burger devoured: ", eatBurger);
+            location.reload();
+        }
+      );
     })
 });
 
