@@ -11,11 +11,12 @@ img {
 
 #instruction {
     margin-top: 5px;
-    font-family: Calibri;
+    padding-top: 5px;
+    font-family: Monaco;
     font-weight: bold;
 }
 
 #title {
-    font-family: Calibri;
+    font-family: Monaco;
     font-weight: bold;
 }
