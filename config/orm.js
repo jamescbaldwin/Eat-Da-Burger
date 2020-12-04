@@ -14,7 +14,7 @@ var orm = {
     var colString = column.toString();
     var queryString = "INSERT INTO " + tableInput + "(burger_name, devoured) VALUES ('" + colString + "', false)";
     console.log(queryString);
-    connection.query(queryString, [table, cols, vals], function (err, result) {
+    connection.query(queryString, function (err, result) {
       if (err) throw err;
       cbf(result);
     });
@@ -25,7 +25,7 @@ var orm = {
     queryString += ' WHERE ';
     queryString += condition;
     console.log(queryString);
-    connection.query(queryString, [table, cols, updatedValue, id], function (err, result) {
+    connection.query(queryString, function (err, result) {
       if (err) throw err;
       cbf(result);
     });

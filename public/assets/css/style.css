@@ -1,4 +1,10 @@
 body {
     background-color: rgb(238, 198, 89);
 }
-
+.undevoured {
+    margin: 8%;
+}
+img {
+    width: 222px;
+    height: 222px;
+}

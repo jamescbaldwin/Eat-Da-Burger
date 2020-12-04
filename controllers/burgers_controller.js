@@ -13,14 +13,14 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
-    burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(result) {
+    burger.insertOne([req.body.name], function(result) {
         res.json({ id: result.insertId });
     });
 });
 
 router.put("/:id", function(req, res) {
     var condition = "id = " + req.params.id;
-    console.log("condition", condition);
+    console.log("condition: ", condition);
     burger.updateOne(
         {
           devoured: req.body.devoured
@@ -31,6 +31,7 @@ router.put("/:id", function(req, res) {
                 return res.status(404).end();
             }
             res.status(200).end();
+            console.log("UPDATE SUCCESSFUL!");
         }
     );
 });
