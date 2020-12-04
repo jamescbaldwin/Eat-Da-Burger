@@ -20,3 +20,7 @@ img {
     font-family: Monaco;
     font-weight: bold;
 }
+
+#submitButton {
+    margin-bottom: 10px;
+}
