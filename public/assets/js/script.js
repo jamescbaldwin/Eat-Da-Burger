@@ -1,19 +1,29 @@
 $(document).ready(function () { 
     $(".devourButton").on("click", function(event) {
-        event.preventDefault();
+        // event.preventDefault();
         var id = $(this).data("id");
+        var eatBurger = $(this).data("eaten");
 
-        $.ajax({url: "/api/burgers/" + id, methos: "PUT"}
-        .then)(function (data) {
-            console.log(data);
+        var devouredBurger = {
+            devoured: eatBurger
+        };
+
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: devouredBurger
+        }).then(function () {
+            console.log("burger devoured: ", eatBurger);
             location.reload();
-        });
+        }
+      );
     });
 
-    $("#submitButton").on("click", function (event) {
+    $("#addBurgerForm").on("submit", function (event) {
         event.preventDefault();
 
-        var addedBurger = {name: $("#newBurger").val().trim()};
+        var addedBurger = {
+            name: $("#newBurger").val().trim(),
+        };
 
         $.ajax("/api/burgers", {
             type: "POST",
