@@ -40,7 +40,7 @@ $(function () {
         var eatBurger = $(this).data("eaten");
 
         var devouredBurger = {
-            devoured: eatBurger
+            devoured: false
         };
 
         $.ajax("/api/burgers/" + id, {
@@ -49,8 +49,20 @@ $(function () {
         }).then(function () {
             console.log("burger devoured: ", eatBurger);
             location.reload();
-        }
-      );
-    })
+        })
+    });
+
+    // $(".delete").on("click", function(event) {
+	// 	var id = $(this).data("id");
+
+	//     $.ajax("/api/burgers/" + id, {
+	//     	type: "DELETE",
+	//     }).then(
+	//     function() {
+	//     	console.log("deleted burger", id);
+	//         location.reload();
+	//     }
+	//     );
+	// });
 });
 

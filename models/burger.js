@@ -21,6 +21,12 @@ var burger = {
         });
     },
 
+    undoOne: function(columnVal, condition, cbf) {
+        orm.undoOne("burgers", columnVal, condition, function(response) {
+            cbf(response);
+        });
+    }
+
     // deleteOne: function(condition, cbf) {
     //     orm.deleteOne("burgers", condition, function(response) {
     //         cbf(response);

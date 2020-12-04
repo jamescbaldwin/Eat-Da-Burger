@@ -1,3 +1,8 @@
+*{
+    font-family: Monaco;
+    font-weight: bold;
+}
+
 body {
     background-color: rgb(238, 198, 89);
 }
@@ -22,5 +27,5 @@ img {
 }
 
 #submitButton {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }

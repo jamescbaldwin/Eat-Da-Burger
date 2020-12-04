@@ -24,6 +24,21 @@ router.put("/:id", function(req, res) {
             console.log("UPDATE SUCCESSFUL!");
         }
     );
+    burger.undoOne(
+        {
+            devoured: req.body.devoured
+        },
+        condition,
+        function(result) {
+            if (result.changedRows == 0) {
+                return.status(404).end();
+            }
+            res.status(200).end();
+            console.log("UPDATE SUCCESSFUL!")
+        }
+    );
 });
+
+
 
 module.exports = router;
